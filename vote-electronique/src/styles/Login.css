@@ -1,0 +1,238 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-bg);
+  padding: 1rem;
+}
+
+/* ── Bandeau drapeau ── */
+.drapeau-bar {
+  display: flex;
+  width: 100%;
+  max-width: 420px;
+  height: 10px;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.drapeau-vert  { flex: 1; background: #00853F; }
+.drapeau-jaune {
+  flex: 1;
+  background: #FDEF42;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.drapeau-rouge { flex: 1; background: #E31B23; }
+.etoile { font-size: 8px; color: #00853F; line-height: 1; }
+
+/* ── Carte ── */
+.login-card {
+  background: var(--white);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 2rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  animation: fadeUp 0.3s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Logo ── */
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.8rem;
+  justify-content: center;
+}
+
+.logo-icon {
+  flex-shrink: 0;
+}
+
+.logo-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--vert);
+  line-height: 1.2;
+}
+
+.logo-sub {
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+/* ── Étapes ── */
+.steps {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.8rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-light);
+  background: var(--white);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.step-dot.done   { background: var(--vert); border-color: var(--vert); color: var(--white); }
+.step-dot.active { border-color: var(--vert); color: var(--vert); }
+
+.step-label        { font-size: 13px; color: var(--text-light); white-space: nowrap; }
+.step-label.active { color: var(--text); font-weight: 500; }
+
+.step-line      { flex: 1; height: 1.5px; background: var(--border); margin: 0 8px; }
+.step-line.done { background: var(--vert); }
+
+/* ── Titres ── */
+.login-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.login-sub   { font-size: 13px; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.5; }
+.login-sub strong { color: var(--text); }
+
+/* ── Champs ── */
+.field { margin-bottom: 1.1rem; }
+.field label { display: block; font-size: 13px; color: var(--text-mid); margin-bottom: 5px; font-weight: 500; }
+
+.field input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+  font-family: inherit;
+}
+
+.field input:focus { border-color: var(--vert); box-shadow: 0 0 0 3px rgba(0,133,63,0.12); }
+.field input.error { border-color: var(--rouge); box-shadow: 0 0 0 3px rgba(227,27,35,0.1); }
+.field-error { font-size: 12px; color: var(--rouge); margin-top: 4px; }
+
+/* ── Boutons ── */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: var(--vert);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.1s;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.btn-primary:hover:not(:disabled) { background: var(--vert-dark); }
+.btn-primary:active:not(:disabled) { transform: scale(0.98); }
+.btn-primary:disabled { background: var(--border); color: var(--text-light); cursor: not-allowed; }
+
+.btn-ghost {
+  width: 100%;
+  padding: 11px;
+  background: transparent;
+  color: var(--text-mid);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  transition: background 0.15s;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-ghost:hover { background: var(--gray-light); }
+
+/* ── Info box ── */
+.info-box {
+  background: var(--vert-light);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--vert-dark);
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+/* ── OTP ── */
+.otp-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }
+.otp-timer { font-size: 13px; color: var(--text-light); }
+.otp-timer span { font-weight: 600; color: var(--vert); }
+.otp-timer.expired span { color: var(--rouge); }
+
+.btn-resend {
+  background: none;
+  border: none;
+  color: var(--vert);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-resend:disabled { color: var(--text-light); cursor: not-allowed; text-decoration: none; }
+
+/* ── Erreurs ── */
+.error-banner {
+  background: var(--rouge-light);
+  border: 1px solid #F7C1C1;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--rouge);
+  margin-bottom: 1rem;
+}
+
+/* ── Spinner ── */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Footer ── */
+.login-footer {
+  margin-top: 1rem;
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: center;
+}

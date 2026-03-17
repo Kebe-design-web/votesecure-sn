@@ -1,0 +1,52 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --vert:        #00853F;
+  --vert-dark:   #006830;
+  --vert-light:  #E6F4EC;
+  --jaune:       #FDEF42;
+  --jaune-dark:  #C9B800;
+  --jaune-light: #FFFDE6;
+  --rouge:       #E31B23;
+  --rouge-light: #FDECEA;
+  --rouge-dark:  #B01219;
+  --or:          #D4AF37;
+  --or-light:    #FDF6DC;
+  --gray-bg:     #F5F5F2;
+  --gray-light:  #F1EFE8;
+  --border:      #DDDDDA;
+  --text:        #1a1a1a;
+  --text-mid:    #555555;
+  --text-light:  #999999;
+  --white:       #ffffff;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --shadow:      0 2px 16px rgba(0,0,0,0.08);
+
+  --blue:        #00853F;
+  --blue-dark:   #006830;
+  --blue-light:  #E6F4EC;
+  --teal:        #00853F;
+  --teal-light:  #E6F4EC;
+  --teal-dark:   #006830;
+  --red:         #E31B23;
+  --red-light:   #FDECEA;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--gray-bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
