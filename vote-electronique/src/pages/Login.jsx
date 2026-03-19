@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import OtpInput from '../components/OtpInput'
 import '../styles/Login.css'
+import API_URL from '../config'
 
 function Login() {
   const navigate = useNavigate()
@@ -59,7 +60,7 @@ function Login() {
     setLoading(true)
     setGlobalError('')
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch(`${API_URL}/api/auth/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ cnie: cnie.replace(/\s/g, ''), password })
@@ -93,7 +94,7 @@ function Login() {
     setOtpLoading(true)
     setOtpError('')
     try {
-      const response = await fetch('http://localhost:5000/api/auth/verify-otp', {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ electeurId, otp })
