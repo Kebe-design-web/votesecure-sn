@@ -5,7 +5,15 @@ require('dotenv').config({ path: path.resolve(__dirname, '.env') })
 
 const app = express()
 
-app.use(cors({ origin: 'http://localhost:5173' }))
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://votesecure-sn.vercel.app',
+    /\.vercel\.app$/
+  ],
+  credentials: true
+}))
+
 app.use(express.json())
 
 app.use('/api/auth', require('./routes/auth'))
