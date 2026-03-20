@@ -60,7 +60,7 @@ function Login() {
     setLoading(true)
     setGlobalError('')
     try {
-      const response = await fetch(`${API_URL}/api/auth/verify-otp`, {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ cnie: cnie.replace(/\s/g, ''), password })
@@ -94,7 +94,7 @@ function Login() {
     setOtpLoading(true)
     setOtpError('')
     try {
-      const response = await fetch(`${API_URL}/api/auth/login`, {
+      const response = await fetch(`${API_URL}/api/auth/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ electeurId, otp })
@@ -219,14 +219,11 @@ function Login() {
               Code envoyé au <strong>+221 77 *** **34</strong>.<br />
               Entrez les 6 chiffres reçus par SMS.
             </p>
-
-            {/* Code OTP visible en développement */}
             {otpDebug && (
               <div className="info-box" style={{marginBottom:'1rem'}}>
                 🔧 Mode dev — Votre code OTP : <strong>{otpDebug}</strong>
               </div>
             )}
-
             {otpError && <div className="error-banner">{otpError}</div>}
             <OtpInput value={otp} onChange={setOtp} length={6} />
             <div className="otp-meta">
